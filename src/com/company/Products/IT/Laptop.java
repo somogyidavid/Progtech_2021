@@ -13,6 +13,11 @@ public class Laptop implements Product {
         return price;
     }
 
+    @Override
+    public String getDescription() {
+        return "Laptop";
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

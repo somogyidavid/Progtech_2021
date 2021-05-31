@@ -13,6 +13,11 @@ public class Pullover implements Product {
         return price;
     }
 
+    @Override
+    public String getDescription() {
+        return "Pullover";
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

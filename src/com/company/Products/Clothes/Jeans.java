@@ -13,6 +13,11 @@ public class Jeans implements Product {
         return price;
     }
 
+    @Override
+    public String getDescription() {
+        return "Jeans";
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

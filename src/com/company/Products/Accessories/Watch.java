@@ -13,6 +13,11 @@ public class Watch implements Product {
         return price;
     }
 
+    @Override
+    public String getDescription() {
+        return "Watch";
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

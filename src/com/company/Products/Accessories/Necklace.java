@@ -13,6 +13,11 @@ public class Necklace implements Product {
         return price;
     }
 
+    @Override
+    public String getDescription() {
+        return "Necklace";
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

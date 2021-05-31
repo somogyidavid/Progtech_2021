@@ -13,6 +13,11 @@ public class Processor implements Product {
         return price;
     }
 
+    @Override
+    public String getDescription() {
+        return "Processor";
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
