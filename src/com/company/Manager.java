@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Order.Delivery;
+import com.company.Order.Order;
 import com.company.Packing.AddressSticker;
 import com.company.Packing.CardBoardBox;
 import com.company.Packing.PolystyrenePieces;
@@ -54,7 +56,8 @@ public class Manager {
         Iterator warehouseIterator = warehouse.createIterator();
         while(warehouseIterator.hasNext()) {
             Product product = (Product) warehouseIterator.next();
-            courierCar.addProduct(new AddressSticker(new PolystyrenePieces(new CardBoardBox(product))));
+            //courierCar.addProduct(new AddressSticker(new PolystyrenePieces(new CardBoardBox(product))));
+            courierCar.addProduct(new Delivery(product));
             System.out.println(product);
         }
     }
