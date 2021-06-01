@@ -2,12 +2,12 @@ package com.company.Order;
 
 import com.company.Packing.AddressSticker;
 import com.company.Packing.CardBoardBox;
+import com.company.Packing.PolystyrenePieces;
 import com.company.Products.Product;
 
 public class Delivery extends Order {
     public Delivery(Product product){
         super(product);
-        packProduct();
     }
 
     @Override
@@ -21,8 +21,13 @@ public class Delivery extends Order {
     }
 
     @Override
+    void fillBox() {
+        product = new PolystyrenePieces(product);
+    }
+
+    @Override
     public int getPrice() {
-        return product.getPrice();
+        return product.getPrice() + 1000;
     }
 
     @Override

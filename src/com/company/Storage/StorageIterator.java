@@ -1,14 +1,14 @@
-package com.company.Warehouse;
+package com.company.Storage;
 
 import com.company.Products.Product;
 
 import java.util.List;
 
-public class WarehouseIterator implements Iterator {
+public class StorageIterator implements Iterator {
     List<Product> products;
     int position = 0;
 
-    public WarehouseIterator(List<Product> products) {
+    public StorageIterator(List<Product> products) {
         this.products = products;
     }
 

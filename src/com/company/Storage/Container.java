@@ -1,4 +1,4 @@
-package com.company.Warehouse;
+package com.company.Storage;
 
 import com.company.Products.Product;
 

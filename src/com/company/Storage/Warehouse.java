@@ -1,4 +1,4 @@
-package com.company.Warehouse;
+package com.company.Storage;
 
 import com.company.Products.Product;
 
@@ -9,6 +9,14 @@ public class Warehouse implements Container {
     private int maxItems = 10;
     private int numberOfItems = 0;
     private List<Product> products = new ArrayList<>();
+    private static Warehouse instance;
+
+    public static Warehouse getInstance() {
+        if(instance == null) {
+            instance = new Warehouse();
+        }
+        return instance;
+    }
 
     @Override
     public void addProduct(Product product) {
@@ -23,6 +31,6 @@ public class Warehouse implements Container {
 
     @Override
     public Iterator createIterator() {
-        return new WarehouseIterator(products);
+        return new StorageIterator(products);
     }
 }
