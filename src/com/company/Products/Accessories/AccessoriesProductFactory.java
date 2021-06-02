@@ -1,5 +1,6 @@
 package com.company.Products.Accessories;
 
+import com.company.Exceptions.ProductNotExistException;
 import com.company.Products.Product;
 import com.company.Products.ProductFactory;
 
@@ -15,7 +16,7 @@ public class AccessoriesProductFactory implements ProductFactory {
     }
 
     @Override
-    public Product createProduct(String name, int price) {
+    public Product createProduct(String name, int price) throws ProductNotExistException {
         Product product;
         if(name.equalsIgnoreCase("necklace")) {
             product = new Necklace(price);
@@ -23,7 +24,7 @@ public class AccessoriesProductFactory implements ProductFactory {
         else if(name.equalsIgnoreCase("watch")) {
             product = new Watch(price);
         }
-        else throw new RuntimeException("This product doesn't exist!");
+        else throw new ProductNotExistException("This product doesn't exist!");
 
         return product;
     }

@@ -1,5 +1,6 @@
 package com.company.Storage;
 
+import com.company.Exceptions.ContainerFullException;
 import com.company.Products.Product;
 
 import java.util.ArrayList;
@@ -19,9 +20,9 @@ public class Warehouse implements Container {
     }
 
     @Override
-    public void addProduct(Product product) {
+    public void addProduct(Product product) throws ContainerFullException {
         if(numberOfItems >= maxItems) {
-            throw new RuntimeException("The warehouse is full!");
+            throw new ContainerFullException("The warehouse is full!");
         }
         else {
             products.add(product);
