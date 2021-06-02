@@ -14,7 +14,7 @@ public class StorageIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        return position < products.stream().count() && products.get(position) != null;
+        return position < (long) products.size() && products.get(position) != null;
     }
 
     @Override

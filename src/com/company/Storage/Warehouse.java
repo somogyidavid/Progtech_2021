@@ -31,6 +31,11 @@ public class Warehouse implements Container {
     }
 
     @Override
+    public int getNumberOfItems() {
+        return this.numberOfItems;
+    }
+
+    @Override
     public Iterator createIterator() {
         return new StorageIterator(products);
     }

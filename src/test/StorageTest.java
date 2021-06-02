@@ -2,10 +2,10 @@ package test;
 
 import com.company.Exceptions.ContainerFullException;
 import com.company.Exceptions.NotExistingFactoryTypeException;
+import com.company.Exceptions.NotExistingTypeOfOrderException;
 import com.company.Exceptions.ProductNotExistException;
 import com.company.Manager;
 import com.company.Order.Delivery;
-import com.company.Order.Order;
 import com.company.Order.OrderFactory;
 import com.company.Order.OrderFactoryImpl;
 import com.company.Packing.AddressSticker;
@@ -27,6 +27,7 @@ public class StorageTest extends TestCase {
     ProductFactory itProductFactory;
     ProductFactory clothesProductFactory;
     ProductFactory accessoriesProductFactory;
+    OrderFactory orderFactory;
 
     @Test
     public void InitializationTest() throws NotExistingFactoryTypeException {
@@ -34,11 +35,13 @@ public class StorageTest extends TestCase {
         itProductFactory = AbstractFactory.getProductFactory("IT");
         clothesProductFactory = AbstractFactory.getProductFactory("Clothes");
         accessoriesProductFactory = AbstractFactory.getProductFactory("Accessories");
+        orderFactory = new OrderFactoryImpl();
 
         assertNotNull(warehouse);
         assertNotNull(itProductFactory);
         assertNotNull(clothesProductFactory);
         assertNotNull(accessoriesProductFactory);
+        assertNotNull(orderFactory);
     }
 
     @Test
@@ -95,12 +98,17 @@ public class StorageTest extends TestCase {
     }
 
     @Test
-    public void createOrderTest() throws ProductNotExistException, ContainerFullException {
+    public void createOrderTest() throws ProductNotExistException, ContainerFullException, NotExistingTypeOfOrderException {
         Product product = itProductFactory.createProduct("Laptop", 180000);
-        OrderFactory orderFactory = new OrderFactoryImpl();
         Manager manager = new Manager(orderFactory);
         orderFactory.createOrder("delivery", product);
         assertEquals(1, manager.getSoldProducts());
+    }
+
+    @Test(expectedExceptions = NotExistingTypeOfOrderException.class)
+    public void createNotExistingOrderTest() throws ProductNotExistException, NotExistingTypeOfOrderException, ContainerFullException {
+        Product product = clothesProductFactory.createProduct("Jeans", 3000);
+        orderFactory.createOrder("personalReceipt", product);
     }
 
     @Test(expectedExceptions = ContainerFullException.class)

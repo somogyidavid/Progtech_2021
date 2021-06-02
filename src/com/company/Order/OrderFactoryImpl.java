@@ -1,6 +1,7 @@
 package com.company.Order;
 
 import com.company.Exceptions.ContainerFullException;
+import com.company.Exceptions.NotExistingTypeOfOrderException;
 import com.company.Products.Product;
 import com.company.Storage.Container;
 import com.company.Storage.CourierCar;
@@ -17,14 +18,14 @@ public class OrderFactoryImpl implements OrderFactory {
     }
 
     @Override
-    public Order createOrder(String type, Product product) throws ContainerFullException {
+    public Order createOrder(String type, Product product) throws ContainerFullException, NotExistingTypeOfOrderException {
         Order order;
         if(type.equalsIgnoreCase("delivery")) {
             order = new Delivery(product);
             courierCar.addProduct(order);
             notifyAllObservers();
         }
-        else throw new RuntimeException("This type of order doesn't exist!");
+        else throw new NotExistingTypeOfOrderException("This type of order doesn't exist!");
 
         return order;
     }
