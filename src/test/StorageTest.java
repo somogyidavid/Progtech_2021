@@ -1,7 +1,7 @@
 package test;
 
 import com.company.Exceptions.*;
-import com.company.Manager;
+import com.company.Management.Manager;
 import com.company.Order.Delivery;
 import com.company.Order.Order;
 import com.company.Order.OrderFactory;

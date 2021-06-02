@@ -1,4 +1,6 @@
-package com.company.Order;
+package com.company.Management;
+
+import com.company.Order.Order;
 
 public abstract class Observer {
     protected Order order;

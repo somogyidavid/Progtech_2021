@@ -1,6 +1,6 @@
-package com.company;
+package com.company.Management;
 
-import com.company.Order.Observer;
+import com.company.Management.Observer;
 import com.company.Order.OrderFactory;
 
 public class Manager extends Observer {
