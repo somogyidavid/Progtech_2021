@@ -16,6 +16,6 @@ public class CardBoardBox implements PackingDecorator{
 
     @Override
     public String getDescription() {
-        return product.getDescription() + ", in cardboard box.";
+        return product.getDescription() + ", in cardboard box";
     }
 }

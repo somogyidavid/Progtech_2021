@@ -31,6 +31,18 @@ public class Warehouse implements Container {
     }
 
     @Override
+    public void removeProduct(Product product) {
+        this.products.remove(product);
+        this.numberOfItems--;
+    }
+
+    @Override
+    public void clearContainer(){
+        this.products = new ArrayList<>();
+        this.numberOfItems = 0;
+    }
+
+    @Override
     public int getNumberOfItems() {
         return this.numberOfItems;
     }
