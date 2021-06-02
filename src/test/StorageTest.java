@@ -138,10 +138,10 @@ public class StorageTest {
         int id = 0;
         int expected = OrderFactoryImpl.getNumberOfOrders();
         System.out.println("---COURIER CAR---");
-        while(id < OrderFactoryImpl.courierCars.size()) {
+        while (id < OrderFactoryImpl.courierCars.size()) {
             Iterator iterator = OrderFactoryImpl.courierCars.get(id).createIterator();
             System.out.println(id + 1 + ". car:");
-            while(iterator.hasNext()) {
+            while (iterator.hasNext()) {
                 Order order = (Order) iterator.next();
                 System.out.println("    -" + order.getDescription() + " - " + order.getPrice() + " Ft");
                 id++;
@@ -151,17 +151,4 @@ public class StorageTest {
 
         Assert.assertEquals(expected, id);
     }
-
-//    @Test(expected = ContainerFullException.class)
-//    public void containerFullTest() throws ProductNotExistException, ContainerFullException {
-//        for (int i = 0; i <= 20; i++) {
-//            if(i % 2 == 0) {
-//                warehouse.addProduct(itProductFactory.createProduct("Laptop", (int) (Math.random() * 150000) + 100000));
-//            }
-//            else {
-//                warehouse.addProduct(itProductFactory.createProduct("Processor", (int) (Math.random() * 90000) + 40000));
-//            }
-//        }
-//    }
-
 }
